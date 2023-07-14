@@ -12,10 +12,11 @@ app.get('/read',async (req,res)=>{
     let read = await empresas.findAll({
         raw:true,
     });
+    res.json(read);
     console.log(read);
 });
 
-let port = process.env.PORT || 3000;
+let port = process.env.PORT || 3001;
 app.listen(port,(req,res)=>{
     console.log('Servidor Rodando!');
 });

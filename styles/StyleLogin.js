@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     box_button:{
-        flex:1,
+        //flex:1,
         flexDirection:'row',
         padding:3,
     },
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
         margin:50,
         marginTop:10,
         fontSize:15,
-        flex:1,
+        //flex:1,
     },
     cadastro:{
         color: '#8500FF',
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
         margin:50,
         marginTop:10,
         fontSize:15,
-        flex:1,
+        //flex:1,
     },
     /*
     logo:{
