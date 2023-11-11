@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
         borderStyle: 'solid',
         borderRadius: 15,
         alignItems: 'center',
+        overflow: 'hidden'
         //justifyContent: 'space-between'
     },
     title: {
@@ -48,13 +49,17 @@ const styles = StyleSheet.create({
     buttonCom: {
         flexDirection: 'row',
         display: 'flex',
+        //flex: 0.8,
+        justifyContent: 'center',
+        alignContent: 'center',
+        //overflow: 'hidden',
     },
     containerButton: {
         backgroundColor: '#9f00ff',
         borderRadius: 100,
         justifyContent: 'center',
         alignItems: 'center',
-        marginLeft: 10,
+        marginLeft: 8,
         padding: 5,
     },
     iconT: {
@@ -74,12 +79,14 @@ const styles = StyleSheet.create({
     },
     containerText: {
         flex: 1,
-        marginLeft: 10,
+        marginLeft: 5,
         alignItems: 'center',
         justifyContent: 'center',
     },
     containerAvatar: {
-        flex: 0.5
+        overflow: 'hidden',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     containerLogoPrincipal: {
         flexDirection: 'row',
@@ -96,7 +103,12 @@ const styles = StyleSheet.create({
     lupa: {
         width: 40,
         height: 40
-    }
+    },
+
+    endereco: {
+        color: '#666666',
+        fontSize: 18,
+    },
 });
 
 export default styles

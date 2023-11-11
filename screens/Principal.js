@@ -1,32 +1,38 @@
 import React, {useState, useEffect} from "react";
-import { View, Text, TextInput, TouchableOpacity, Image, KeyboardAvoidingView, SafeAreaView, ScrollView, VirtualizedList, Linking } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Image, KeyboardAvoidingView, SafeAreaView, ScrollView, VirtualizedList, Linking, Alert, BackHandler, FlatList } from 'react-native';
 import styles from '../styles/StylePrincipal';
 import Communications from 'react-native-communications';
+import config from '../config/config.json';
 
 export default function Principal({navigation}) {
 
     const [dataSource, setDataSource] = useState([]);
 
-    useEffect(() => {
-        fetch('http://10.0.0.108:3001/read')
-            .then((response) => response.json())
-            .then((responseJson) => {
-                setDataSource(responseJson);
-            })
-    }, []);
+    const getEmpresas = async () => {
+        try {
+            const response = await fetch(config.urlRootNode+'read');
+            const json = await response.json();
+            setDataSource(json);
+          } catch (error) {
+            console.error(error);
+          }
+    };
 
-    console.log(dataSource)
+    useEffect(() => {
+        getEmpresas();
+    }, []);
 
     const Item = ( item ) => (
         <View style={styles.item}>
             <View style={styles.containerAvatar}>
-                <Image source={item.image} style={styles.avatar} />
+                <Image source={{ uri: item.imagensEmpresa }} style={styles.avatar} />
             </View>
             <View style={styles.containerText}>
                 <Text style={styles.title}>{item.nomeEmpresa}</Text>
+                <Text style={styles.endereco}>{item.enderecoEmpresa}</Text>
             </View>
             <View style={styles.buttonCom}>
-                <TouchableOpacity onPress={() => {Linking.openURL('https://api.whatsapp.com/send?phone=' + item.whatsappEmpresa)}} style={styles.containerButton}>
+                <TouchableOpacity onPress={() => {Linking.openURL('https://api.whatsapp.com/send?phone=55' + item.whatsappEmpresa)}} style={styles.containerButton}>
                     <Image source={require('./logos/whatsapp.png')} style={styles.iconW}/>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.containerButton} onPress={() => {Communications.phonecall(item.telefoneEmpresa, false)}}>
@@ -42,6 +48,28 @@ export default function Principal({navigation}) {
         ))
     };
 
+    useEffect(() => {
+        const backAction = () => {
+            Alert.alert("Aviso", "Deseja mesmo sair do aplicativo?",[
+                {
+                    text:"Cancelar",
+                    onPress:()=>null,
+                    style:"cancel",
+                },
+                {
+                    text:"Sim",
+                    onPress:()=>BackHandler.exitApp()
+                }
+            ]);
+            return true;
+        }
+
+        const backHandler = BackHandler.addEventListener(
+            "hardwareBackPress",
+            backAction
+        )
+    }, []);
+
     return (
         <SafeAreaView style={styles.background}>
             <View style={styles.container}>
@@ -53,7 +81,7 @@ export default function Principal({navigation}) {
                         <Image source={require('./logos/lupa.png')} style={styles.lupa}/>
                     </TouchableOpacity>
                 </View>
-                <ScrollView>
+                <ScrollView showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false}>
                     {
                        renderItems()
                     }
