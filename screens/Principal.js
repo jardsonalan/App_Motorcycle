@@ -9,7 +9,7 @@ export default function Principal({navigation}) {
     const [dataSource, setDataSource] = useState([]);
 
     useEffect(() => {
-        fetch(config.urlRootNode+'empresa', {
+        fetch(config.urlRootNode+'Empresa', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
