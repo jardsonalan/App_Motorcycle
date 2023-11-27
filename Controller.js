@@ -8,7 +8,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 let empresas=models.Empresas;
 
-app.get('/read',async (req,res)=>{
+app.get('/empresa',async (req,res)=>{
     let read = await empresas.findAll({
         raw:true,
     });
@@ -16,7 +16,7 @@ app.get('/read',async (req,res)=>{
     console.log(read);
 });
 
-let port = process.env.PORT || 3001;
+let port = process.env.PORT || 5188;
 app.listen(port,(req,res)=>{
     console.log('Servidor Rodando!');
 });

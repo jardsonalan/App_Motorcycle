@@ -8,19 +8,18 @@ export default function Principal({navigation}) {
 
     const [dataSource, setDataSource] = useState([]);
 
-    const getEmpresas = async () => {
-        try {
-            const response = await fetch(config.urlRootNode+'read');
-            const json = await response.json();
-            setDataSource(json);
-          } catch (error) {
-            console.error(error);
-          }
-    };
-
     useEffect(() => {
-        getEmpresas();
-    }, []);
+        fetch(config.urlRootNode+'empresa', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+        })
+        .then((resp) => resp.json())
+        .then((resp) => {setDataSource(resp)})
+        .catch((err) => console.log(err))
+    }, [])
 
     const Item = ( item ) => (
         <View style={styles.item}>
