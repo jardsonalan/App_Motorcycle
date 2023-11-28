@@ -1,22 +1,30 @@
-const express=require('express');
-const cors=require('cors');
-const bodyParser=require('body-parser');
-const models=require('./models/index')
+const express = require("express");
+const cors = require("cors");
+const bodyParser = require("body-parser");
+const axios = require("axios");
+const models = require("./models/index");
+const config = require("./config/config.json");
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
-let empresas=models.Empresas;
+let empresas = models.Empresas;
 
-app.get('/empresa',async (req,res)=>{
-    let read = await empresas.findAll({
-        raw:true,
+app.get("/Empresa", async (req, res) => {
+  const url = config.urlApi + "Empresa";
+
+  axios
+    .get(url)
+    .then((response) => {
+      console.log("Resposta do backend:", response.data);
+      res.json(response.data);
+    })
+    .catch((error) => {
+      console.error("Erro na requisição para o backend:", error);
     });
-    res.json(read);
-    console.log(read);
 });
 
 let port = process.env.PORT || 5188;
-app.listen(port,(req,res)=>{
-    console.log('Servidor Rodando!');
+app.listen(port, (req, res) => {
+  console.log("Servidor Rodando!");
 });
