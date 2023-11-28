@@ -20,5 +20,6 @@
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
-  "urlRootNode": "http://10.0.0.108:5188/"
+  "urlRootNode": "http://10.48.7.197:5188/",
+  "urlApi": "http://localhost:5188/"
 }
