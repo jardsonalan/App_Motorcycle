@@ -8,7 +8,7 @@ const config = require("./config/config.json");
 const app = express();
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
-let empresas = models.Empresas;
+// let empresas = models.Empresas;
 
 app.get("/Empresa", async (req, res) => {
   const url = config.urlApi + "Empresa";
@@ -24,7 +24,7 @@ app.get("/Empresa", async (req, res) => {
     });
 });
 
-let port = process.env.PORT || 5188;
+let port = process.env.PORT || 1010;
 app.listen(port, (req, res) => {
   console.log("Servidor Rodando!");
 });
