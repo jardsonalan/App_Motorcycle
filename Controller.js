@@ -24,7 +24,7 @@ app.get("/Empresa", async (req, res) => {
     });
 });
 
-let port = process.env.PORT || 1010;
+let port = process.env.PORT || 1011;
 app.listen(port, (req, res) => {
   console.log("Servidor Rodando!");
 });

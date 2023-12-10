@@ -109,6 +109,22 @@ const styles = StyleSheet.create({
         color: '#666666',
         fontSize: 18,
     },
+
+    searchBar: {
+        height: 40,
+        backgroundColor: '#fff',
+        borderColor: '#9f00ff',
+        borderWidth: 1,
+        margin: 10,
+        width: 230,
+        //padding: 10,
+        borderRadius: 20,
+        paddingHorizontal: 15,
+        //marginHorizontal: 10,
+        marginBottom: 10,
+        flexDirection: 'column',
+        alignItems: 'center',
+    },
 });
 
 export default styles

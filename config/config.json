@@ -20,6 +20,7 @@
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
-  "urlRootNode": "http://10.48.7.197:1010/",
-  "urlApi": "http://localhost:3000/"
+  "urlRootNode": "http://10.0.0.108:1011/",
+  "urlApi": "http://localhost:1011/",
+  "urlWebApi":  "https://apimotorcycle.azurewebsites.net/"
 }

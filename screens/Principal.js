@@ -1,12 +1,14 @@
 import React, {useState, useEffect} from "react";
 import { View, Text, TextInput, TouchableOpacity, Image, KeyboardAvoidingView, SafeAreaView, ScrollView, VirtualizedList, Linking, Alert, BackHandler, FlatList } from 'react-native';
 import styles from '../styles/StylePrincipal';
-import Communications from 'react-native-communications';
+import Communications, { text } from 'react-native-communications';
 import config from '../config/config.json';
 
 export default function Principal({navigation}) {
 
     const [dataSource, setDataSource] = useState([]);
+    const [searchText, setSearchText] = useState('');
+    const [filteredData, setFilteredData] = useState([]);
 
     useEffect(() => {
         fetch(config.urlRootNode+'Empresa', {
@@ -42,9 +44,24 @@ export default function Principal({navigation}) {
     )
 
     const renderItems = () => {
-        return dataSource.map((item, index) => (
+        const dataToRender = searchText.length > 0 ? filteredData : dataSource;
+
+        return dataToRender.map((item, index) => (
             <Item key={index} {...item} />
-        ))
+        ));
+    };
+
+    const handleSearch = (text) => {
+        setSearchText(text);
+
+        const filtered = dataSource.filter((item) => {
+            return(
+                item.nomeEmpresa.toLowerCase().includes(text.toLowerCase()) || 
+                item.enderecoEmpresa.toLowerCase().includes(text.toLowerCase())
+            );
+        });
+
+        setFilteredData(filtered);
     };
 
     useEffect(() => {
@@ -76,9 +93,12 @@ export default function Principal({navigation}) {
                     <View>
                     <Image source={require('./asset_logo/Moto_BuscApp.png')} style={styles.logoPrincipal}/>
                     </View>
-                    <TouchableOpacity style={styles.containerLupa}>
-                        <Image source={require('./logos/lupa.png')} style={styles.lupa}/>
-                    </TouchableOpacity>
+                    <TextInput
+                        style={styles.searchBar}
+                        placeholder="Pesquisar"
+                        value={searchText}
+                        onChangeText={handleSearch}
+                    />
                 </View>
                 <ScrollView showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false}>
                     {
