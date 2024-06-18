@@ -27,4 +27,4 @@
 <h4>Jardson Alan Vieira da Silva</h4>
 <p>LinkedIn: <a href="https://www.linkedin.com/in/jardson-alan/">https://www.linkedin.com/in/jardson-alan/</a></p>
 <p>GitHub: <a href="https://github.com/jardsonalan">https://github.com/jardsonalan</a></p>
-<p>E-mail: <a href="contato.jardsonalan@gmail.com">contato.jardsonalan@gmail.com</a></p>
+<p>E-mail: <a href="mailto:contato.jardsonalan@gmail.com">contato.jardsonalan@gmail.com</a></p>
