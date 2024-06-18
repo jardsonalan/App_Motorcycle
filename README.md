@@ -21,10 +21,10 @@
 
 <h2>Autores</h2>
 <h4>Ian de Araújo Galvão</h4>
-<p>LinkedIn: <a href="https://www.linkedin.com/in/ian-galv%C3%A3o/">https://www.linkedin.com/in/ian-galvão/</a></p>
-<p>GitHub: <a href="https://github.com/Barr0ca">https://github.com/Barr0ca</a></p>
+<p>LinkedIn: <a href="https://www.linkedin.com/in/ian-galv%C3%A3o/" target="_blank">https://www.linkedin.com/in/ian-galvão/</a></p>
+<p>GitHub: <a href="https://github.com/Barr0ca" target="_blank">https://github.com/Barr0ca</a></p>
 
 <h4>Jardson Alan Vieira da Silva</h4>
-<p>LinkedIn: <a href="https://www.linkedin.com/in/jardson-alan/">https://www.linkedin.com/in/jardson-alan/</a></p>
-<p>GitHub: <a href="https://github.com/jardsonalan">https://github.com/jardsonalan</a></p>
-<p>E-mail: <a href="mailto:contato.jardsonalan@gmail.com">contato.jardsonalan@gmail.com</a></p>
+<p>LinkedIn: <a href="https://www.linkedin.com/in/jardson-alan/" target="_blank">https://www.linkedin.com/in/jardson-alan/</a></p>
+<p>GitHub: <a href="https://github.com/jardsonalan" target="_blank">https://github.com/jardsonalan</a></p>
+<p>E-mail: <a href="mailto:contato.jardsonalan@gmail.com" target="_blank">contato.jardsonalan@gmail.com</a></p>
